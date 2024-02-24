@@ -21,20 +21,22 @@ plugins {
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt.gradle)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.android.nav)
+
 }
 
 android {
-    namespace = "android.template"
+    namespace = "com.example.cleanarchitecturebasics"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "android.template"
+        applicationId = "com.example.cleanarchitecturebasics"
         minSdk = 21
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "android.template.HiltTestRunner"
+        testInstrumentationRunner = "com.example.cleanarchitecturebasics.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -82,6 +84,9 @@ android {
 
 dependencies {
 
+    implementation(libs.appcompat)
+    implementation(libs.material)
+    implementation(libs.constraintlayout)
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)
     androidTestImplementation(composeBom)
@@ -89,7 +94,10 @@ dependencies {
     // Core Android dependencies
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.fragment.ktx)
 
     // Hilt Dependency Injection
     implementation(libs.hilt.android)
@@ -126,6 +134,11 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
     //Coroutines Lifecycles
+
+    //navigation
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+
 
 
     // Tooling
