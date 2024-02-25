@@ -31,7 +31,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.cleanarchitecturebasics"
-        minSdk = 21
+        minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -50,7 +50,10 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
@@ -83,7 +86,8 @@ android {
 }
 
 dependencies {
-
+    implementation(project("path" to ":features:navigation"))
+    implementation(project("path" to ":features:commonui"))
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
@@ -138,7 +142,6 @@ dependencies {
     //navigation
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-
 
 
     // Tooling

@@ -15,4 +15,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "CleanArchitectureBasics"
 include(":app")
- 
+include(":features:home")
+include(":features:profile")
+include(":features:commonui")
+include(":features:dashboard")
+include(":features:navigation")
